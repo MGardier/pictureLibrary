@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictureLibrary
+{% endblock %}
+
+{% block body %}
+	<main role="main">
+		<section class="jumbotron text-center">
+			<div class="container">
+				<h1 class="jumbotron-heading">Libraires de photos aléatoires
+				</h1>
+				<p class="lead text-muted">Voici une libraire de photos aléatories provenant du site Lorem Piscum .</p>
+			</div>
+			{% for message in app.flashes('error') %}
+				<div class="alert alert-danger">
+					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+					{{ message }}
+				</div>
+			{% endfor %}
+		</section>
+		<div class="album py-5 bg-light">
+			<div class="container">
+				<div class="row">
+					{% for image in images %}
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<img src="{{ image}}" alt="Image aléatoire"/>
+								<div class="card-body">
+									<p class="card-text">Voici une photo aléatoire du site Lorem Piscum.</p>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+
+			</div>
+		</div>
+	</main>
+{% endblock %}
